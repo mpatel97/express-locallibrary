@@ -1,0 +1,23 @@
+extend layout
+
+block content
+
+    h1 Genre: #{genre.name}
+
+    .mt-2.ml-2
+        h4 Books
+
+        dl
+            each book in genre_books
+                dt
+                    a(href=book.url) #{book.title}
+                dd #{book.summary}
+            
+            else
+                p This genre has no books.
+
+    hr
+    p
+        a(href=genre.url+'/delete') Delete Genre
+    p
+        a(href=genre.url+'/update') Update Genre
